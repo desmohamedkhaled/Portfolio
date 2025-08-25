@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mohamed | Personal Portfolio</title>
+  <meta name="description" content="Mohamed's personal portfolio page featuring photo, social media links, and stunning animations." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="canonical" href="https://example.com" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mohamed | Personal Portfolio" />
+  <meta property="og:description" content="Personal portfolio with social media links and animations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="your-photo.jpg" />
+  <meta property="og:url" content="https://example.com" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mohamed Khaled",
+      "jobTitle": "UI/UX Designer",
+      "url": "https://example.com",
+      "sameAs": [
+        "https://facebook.com/youruser",
+        "https://instagram.com/youruser",
+        "https://x.com/youruser",
+        "https://linkedin.com/in/youruser",
+        "https://github.com/youruser"
+      ]
+    }
+  </script>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-grad-1: #0ea5e9; /* sky-500 */
+      --bg-grad-2: #22c55e; /* green-500 */
+      --bg-grad-3: #8b5cf6; /* violet-500 */
+      --card: #0f172a; /* slate-900 */
+      --text: #e5e7eb; /* zinc-200 */
+      --muted: #a1a1aa; /* zinc-400 */
+      --accent: #22d3ee; /* cyan-400 */
+      --ring: rgba(34, 211, 238, 0.4);
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 22px;
+    }
+    .light {
+      --bg: #f6f7fb;
+      --bg-grad-1: #0ea5e9;
+      --bg-grad-2: #22c55e;
+      --bg-grad-3: #8b5cf6;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #0ea5e9;
+      --ring: rgba(14, 165, 233, 0.25);
+      --shadow: 0 20px 50px rgba(2, 6, 23, 0.08);
+    }
+    * { 
+      box-sizing: border-box; 
+      margin: 0;
+      padding: 0;
+    }
+    html, body { height: 100%; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 10% 10%, rgba(34,197,94,.15), transparent),
+                  radial-gradient(1000px 700px at 90% 20%, rgba(14,165,233,.18), transparent),
+                  radial-gradient(800px 600px at 50% 80%, rgba(139,92,246,.12), transparent),
+                  linear-gradient(160deg, var(--bg-grad-1) 0%, var(--bg) 30%, var(--bg) 100%);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      padding: 32px 16px;
+      overflow-x: hidden;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    /* Floating particles background */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: float 15s ease-in-out infinite;
+    }
+    
+    .particle:nth-child(1) {
+      width: 80px; height: 80px;
+      top: 20%; left: 10%;
+      animation-delay: 0s;
+    }
+    
+    .particle:nth-child(2) {
+      width: 60px; height: 60px;
+      top: 60%; right: 15%;
+      animation-delay: 5s;
+    }
+    
+    .particle:nth-child(3) {
+      width: 40px; height: 40px;
+      bottom: 30%; left: 20%;
+      animation-delay: 10s;
+    }
+    
+    .particle:nth-child(4) {
+      width: 100px; height: 100px;
+      top: 40%; right: 40%;
+      animation-delay: 7s;
+    }
+    
+    @keyframes float {
+      0%, 100% { 
+        transform: translateY(0px) rotate(0deg) scale(1);
+        opacity: 0.3;
+      }
+      33% { 
+        transform: translateY(-30px) rotate(120deg) scale(1.1);
+        opacity: 0.6;
+      }
+      66% { 
+        transform: translateY(20px) rotate(240deg) scale(0.9);
+        opacity: 0.4;
+      }
+    }
+    
+    .wrap {
+      width: 100%;
+      max-width: 920px;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1fr;
+      animation: slideInUp 1s ease-out;
+    }
+    
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      animation: cardFloat 6s ease-in-out infinite;
+    }
+    
+    @keyframes cardFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .hero {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      align-items: center;
+      gap: 18px;
+      padding: 24px;
+    }
+    
+    @media (max-width: 720px){
+      .hero { 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+      }
+      .hero .actions { justify-content: center; }
+      .grid { grid-template-columns: 1fr; }
+    }
+    
+    .avatar {
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,.15);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35), 
+                  0 0 0 8px rgba(255,255,255,.05),
+                  0 0 40px rgba(34, 211, 238, 0.3);
+      object-fit: cover;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: white;
+      animation: avatarPulse 3s ease-in-out infinite, avatarGlow 4s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .avatar::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(34, 211, 238, 0.3), transparent);
+      animation: rotate 4s linear infinite;
+      z-index: -1;
+    }
+    
+    @keyframes avatarPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    @keyframes avatarGlow {
+      0%, 100% { 
+        box-shadow: 0 10px 30px rgba(0,0,0,.35), 
+                    0 0 0 8px rgba(255,255,255,.05),
+                    0 0 40px rgba(34, 211, 238, 0.3);
+      }
+      50% { 
+        box-shadow: 0 10px 30px rgba(0,0,0,.35), 
+                    0 0 0 8px rgba(255,255,255,.05),
+                    0 0 60px rgba(34, 211, 238, 0.5);
+      }
+    }
+    
+    @keyframes rotate {
+      to { transform: rotate(360deg); }
+    }
+    
+    h1 { 
+      margin: 0 0 6px; 
+      font-size: 28px; 
+      letter-spacing: .2px;
+      animation: slideInLeft 1s ease-out 0.3s both;
+      background: linear-gradient(45deg, var(--accent), #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .subtitle { 
+      margin: 0; 
+      color: var(--muted); 
+      font-weight: 600;
+      animation: slideInRight 1s ease-out 0.5s both;
+    }
+    
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .bio { 
+      margin: 10px 0 0; 
+      color: var(--muted); 
+      line-height: 1.8;
+      animation: fadeIn 1s ease-out 0.7s both;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .actions { 
+      display: flex; 
+      gap: 10px; 
+      flex-wrap: wrap; 
+    }
+    
+    .btn {
+      display: inline-flex; 
+      align-items: center; 
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--text);
+      text-decoration: none;
+      transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .btn:hover::before {
+      left: 100%;
+    }
+    
+    .btn:hover { 
+      transform: translateY(-3px) scale(1.05); 
+      background: rgba(255,255,255,.15); 
+      border-color: rgba(255,255,255,.3); 
+      box-shadow: 0 10px 25px rgba(0,0,0,.3);
+    }
+    
+    .btn:focus-visible { 
+      outline: none; 
+      box-shadow: 0 0 0 6px var(--ring); 
+    }
+    
+    .btn .icon { 
+      width: 18px; 
+      height: 18px; 
+      display: inline-block; 
+    }
+    
+    .divider { 
+      height: 1px; 
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent); 
+      margin: 0; 
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 18px 24px 24px;
+    }
+    
+    .panel { 
+      background: var(--card); 
+      border: 1px solid rgba(255,255,255,.08); 
+      border-radius: 18px; 
+      padding: 16px;
+      transition: all 0.3s ease;
+      animation: panelSlideIn 0.8s ease-out;
+    }
+    
+    .panel:nth-child(1) { animation-delay: 0.2s; }
+    .panel:nth-child(2) { animation-delay: 0.4s; }
+    .panel:nth-child(3) { animation-delay: 0.6s; }
+    
+    @keyframes panelSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .panel:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,255,255,.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    }
+    
+    .panel h3 { 
+      margin: 0 0 10px; 
+      font-size: 18px;
+      color: var(--accent);
+    }
+    
+    .list { 
+      margin: 0; 
+      padding: 0; 
+      list-style: none; 
+      color: var(--muted); 
+    }
+    
+    .list li { 
+      padding: 8px 0; 
+      border-bottom: 1px dashed rgba(255,255,255,.08);
+      transition: color 0.3s ease;
+    }
+    
+    .list li:last-child { border-bottom: 0; }
+    .list li:hover { color: var(--text); }
+    
+    .socials { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 10px; 
+    }
+    
+    .tag {
+      display: inline-flex; 
+      align-items: center; 
+      gap: 8px; 
+      padding: 8px 12px; 
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.12);
+      font-weight: 600; 
+      color: var(--text); 
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .tag:hover {
+      transform: translateY(-2px);
+      background: var(--accent);
+      color: var(--bg);
+      box-shadow: 0 5px 15px rgba(34, 211, 238, 0.4);
+    }
+    
+    .footer { 
+      text-align: center; 
+      color: var(--muted); 
+      padding: 20px 0 0 0; 
+      font-size: 14px;
+      animation: fadeIn 1s ease-out 1s both;
+    }
+    
+    .theme-toggle { 
+      cursor: pointer; 
+      border-radius: 999px; 
+      padding: 10px 12px; 
+      border: 1px solid rgba(255,255,255,.12); 
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-size: 18px;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+    
+    .light .theme-toggle {
+      border: 1px solid rgba(0,0,0,.12);
+      background: rgba(0,0,0,.06);
+    }
+    
+    .theme-toggle:hover { 
+      background: rgba(255,255,255,.15);
+      transform: scale(1.1) rotate(180deg);
+    }
+    
+    .light .theme-toggle:hover {
+      background: rgba(0,0,0,.15);
+    }
+    
+    /* Scroll-to-top button styles */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 100;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 22px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    #scrollTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    /* Copy email button style */
+    #copyEmail {
+      margin-left: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: transparent;
+      color: var(--accent);
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    #copyEmail:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+  </style>
+</head>
+<body>
+  <div class="particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <main class="wrap">
+    <!-- Profile Card -->
+    <section class="card" aria-label="Profile Card">
+      <div class="hero">
+        <!-- Replace with your actual photo -->
+        <img src="WhatsApp Image 2025-08-17 at 12.59.33_6543fdd6.jpg" alt="Mohamed Khaled standing by the sea in a blue hoodie" class="avatar" width="140" height="140" loading="lazy" />
+        <div>
+          <h1 class="gradient-text" tabindex="0">Mohamed Khaled</h1>
+          <p class="subtitle" tabindex="0"> UI/UX Designer</p>
+          <p class="bio" tabindex="0">Passionate about creating amazing digital experiences and bringing creative ideas to life. I specialize in modern web technologies and love working on innovative projects that make a difference.</p>
+          <div class="actions" role="group" aria-label="Contact buttons">
+            <a class="btn social-btn" href="mailto:eng.moahamedkhaledx@gmail.com" aria-label="Email me">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
+              <span>Email</span>
+            </a>
+            <button id="copyEmail" aria-label="Copy email to clipboard" title="Copy email">📋 Copy</button>
+            <a class="btn social-btn" href="https://wa.me/201555379961" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.94 11.94 0 0 0 12.06 0C5.63 0 .41 5.22.41 11.66c0 2.05.54 4.06 1.57 5.84L0 24l6.68-1.95a11.6 11.6 0 0 0 5.38 1.37h.01c6.43 0 11.65-5.23 11.65-11.66 0-3.11-1.21-6.02-3.2-8.12Zm-8.46 18.8h-.01c-1.73 0-3.43-.46-4.93-1.34l-.35-.2-3.96 1.16 1.14-3.86-.23-.4a9.74 9.74 0 0 1-1.5-5.16C2.22 6.3 6.72 1.8 12.05 1.8c2.58 0 5 1 6.83 2.82a9.61 9.61 0 0 1 2.83 6.85c0 5.33-4.5 9.83-9.82 9.83Zm5.71-7.35c-.31-.16-1.82-.9-2.1-1.01-.28-.1-.49-.16-.7.16-.2.31-.8 1-.98 1.21-.18.2-.36.23-.68.08-.31-.16-1.33-.49-2.53-1.56-.94-.83-1.57-1.86-1.75-2.17-.18-.31 0-.47.13-.62.13-.13.31-.36.46-.54.15-.18.2-.31.31-.52.1-.21.05-.39-.03-.54-.08-.16-.7-1.68-.96-2.3-.25-.6-.51-.52-.7-.52h-.6c-.2 0-.52.08-.79.39-.27.31-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.11c.15.2 2.11 3.22 5.1 4.53.71.31 1.26.5 1.69.64.71.22 1.35.19 1.86.12.57-.08 1.82-.74 2.08-1.46.26-.72.26-1.34.18-1.46-.08-.13-.28-.2-.59-.36Z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+            <a class="btn social-btn" href="tel:+201555379961" aria-label="Call me">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+              <span>Call</span>
+            </a>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" tabindex="0">🌙</button>
+          <a class="btn" href="resume.pdf" download aria-label="Download Resume">📄 Resume</a>
+        </div>
+      </div>
+      <hr class="divider" />
+      <div class="grid" aria-label="Additional content">
+        <div class="panel" aria-label="Quick Stats">
+          <h3>Quick Info</h3>
+          <ul class="list">
+            <li>🌍 Location: Cairo, Egypt</li>
+            <li>💼 Work: Software Developer</li>
+            <li>🎨 Interests: Design, AI, Tech</li>
+            <li>☕ Fun: Coffee Enthusiast</li>
+          </ul>
+        </div>
+        <div class="panel" aria-label="Social Links">
+          <h3>Follow Me</h3>
+          <div class="socials">
+            <a class="tag social-btn" href="https://www.facebook.com/share/17C1fUK3os/" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2 6.35 2 1.87 6.48 1.87 12.07A10.07 10.07 0 0 0 10.7 22v-7.03H7.9v-2.9h2.8V9.3c0-2.77 1.65-4.3 4.18-4.3 1.21 0 2.47.22 2.47.22v2.72h-1.39c-1.37 0-1.8.85-1.8 1.73v2.08h3.07l-.49 2.9h-2.58V22A10.07 10.07 0 0 0 22 12.07Z"/></svg>
+              <span>Facebook</span>
+            </a>
+            <a class="tag social-btn" href="https://www.instagram.com/itzz.mohamedx?igsh=Z21pcHcwNThua3c3" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><path d="M17.5 6.5h.01"/></svg>
+              <span>Instagram</span>
+
+            </a>
+            <a class="tag social-btn" href="https://www.linkedin.com/in/mohamed-khaled-b999b534a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.5 8.5h4V24h-4V8.5Zm7.5 0h3.84v2.11h.05c.54-1.02 1.86-2.11 3.83-2.11C20.77 8.5 22 11.26 22 15.29V24h-4v-7.59c0-1.81-.03-4.14-2.52-4.14-2.52 0-2.91 1.97-2.91 4v7.73h-4V8.5Z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a class="tag social-btn" href="https://github.com/desmohamedkhaled" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2.16c-3.22.7-3.9-1.35-3.9-1.35-.53-1.35-1.3-1.71-1.3-1.71-1.07-.74.08-.73.08-.73 1.18.08 1.8 1.22 1.8 1.22 1.05 1.8 2.76 1.28 3.43.98.11-.76.41-1.28.74-1.57-2.57-.29-5.27-1.29-5.27-5.73 0-1.27.46-2.31 1.22-3.12-.12-.29-.53-1.46.11-3.04 0 0 1-.32 3.28 1.19a11.37 11.37 0 0 1 5.97 0C15.6 5.63 16.6 5.94 16.6 5.94c.64 1.58.23 2.75.11 3.04.76.81 1.22 1.85 1.22 3.12 0 4.45-2.71 5.44-5.29 5.73.42.37.79 1.1.79 2.22v3.29c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+        <div class="panel" aria-label="About">
+          <h3>About Me</h3>
+          <ul class="list">
+            <li>🚀 2+ years experience in UI/UX</li>
+            <li>🧑‍💻 Open-source contributor</li>
+            <li>📚 Lifelong learner</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- Portfolio Section -->
+    <section class="card" aria-label="Portfolio" style="margin-top:24px;">
+      <div style="padding:24px;">
+        <h2 style="font-size:24px; margin-bottom:12px; color:var(--accent);">Portfolio</h2>
+        <div class="grid" style="grid-template-columns:repeat(3,1fr); gap:18px;">
+          <!-- Project 1 -->
+          <div class="panel" aria-label="Project 1">
+            <h3>Project Name 1</h3>
+            <p class="bio">Short description of your project. What does it do? What tech did you use?</p>
+            <a class="btn" href="https://github.com/youruser/project1" target="_blank">View on GitHub</a>
+          </div>
+          <!-- Project 2 -->
+          <div class="panel" aria-label="Project 2">
+            <h3>Project Name 2</h3>
+            <p class="bio">Short description of your project. What does it do? What tech did you use?</p>
+            <a class="btn" href="https://github.com/youruser/project2" target="_blank">View on GitHub</a>
+          </div>
+          <!-- Project 3 -->
+          <div class="panel" aria-label="Project 3">
+            <h3>Project Name 3</h3>
+            <p class="bio">Short description of your project. What does it do? What tech did you use?</p>
+            <a class="btn" href="https://github.com/youruser/project3" target="_blank">View on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    &copy; <span id="year"></span> Mohamed. All rights reserved.
+  </footer>
+  <button id="scrollTopBtn" aria-label="Scroll to top" title="Scroll to top">↑</button>
+
+  <script>
+    // Theme management
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    function applyTheme(theme) {
+      if (theme === 'light') {
+        body.classList.add('light');
+        themeToggle.textContent = '☀️';
+      } else {
+        body.classList.remove('light');
+        themeToggle.textContent = '🌙';
+      }
+      localStorage.setItem('theme', theme);
+    }
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    applyTheme(savedTheme);
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = body.classList.contains('light') ? 'light' : 'dark';
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      applyTheme(newTheme);
+      this.style.transform = 'scale(0.9) rotate(180deg)';
+      setTimeout(() => { this.style.transform = ''; }, 200);
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Copy email functionality
+    const email = 'eng.moahamedkhaledx@gmail.com';
+    const copyEmailBtn = document.getElementById('copyEmail');
+    if (copyEmailBtn) {
+      copyEmailBtn.addEventListener('click', async function() {
+        try {
+          await navigator.clipboard.writeText(email);
+          const originalText = this.innerHTML;
+          this.innerHTML = '✅ Copied!';
+          this.style.background = 'var(--accent)';
+          this.style.color = 'white';
+          setTimeout(() => {
+            this.innerHTML = originalText;
+            this.style.background = '';
+            this.style.color = '';
+          }, 2000);
+        } catch (e) {
+          // Fallback for older browsers
+          const textArea = document.createElement('textarea');
+          textArea.value = email;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          const originalText = this.innerHTML;
+          this.innerHTML = '✅ Copied!';
+          setTimeout(() => { this.innerHTML = originalText; }, 2000);
+        }
+      });
+    }
+
+    // Scroll-to-top button
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        scrollTopBtn.classList.add('show');
+      } else {
+        scrollTopBtn.classList.remove('show');
+      }
+    });
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Enhanced sparkle effect
+    function createSparkle() {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      sparkle.style.left = Math.random() * 100 + '%';
+      sparkle.style.top = Math.random() * 100 + '%';
+      sparkle.style.animationDelay = Math.random() * 2 + 's';
+      document.body.appendChild(sparkle);
+      setTimeout(() => { if (sparkle.parentNode) sparkle.remove(); }, 2000);
+    }
+    setInterval(createSparkle, 3000);
+
+    // Floating particles effect
+    function createFloatingParticle() {
+      const particle = document.createElement('div');
+      particle.style.position = 'fixed';
+      particle.style.width = Math.random() * 8 + 4 + 'px';
+      particle.style.height = particle.style.width;
+      particle.style.background = `rgba(34, 211, 238, ${Math.random() * 0.5 + 0.2})`;
+      particle.style.borderRadius = '50%';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = '100%';
+      particle.style.pointerEvents = 'none';
+      particle.style.zIndex = '-1';
+      particle.style.animation = 'particleFloat 10s linear infinite';
+      document.body.appendChild(particle);
+      setTimeout(() => { if (particle.parentNode) particle.remove(); }, 10000);
+    }
+    if (!document.getElementById('particleStyles')) {
+      const particleStyles = document.createElement('style');
+      particleStyles.id = 'particleStyles';
+      particleStyles.textContent = `
+        @keyframes particleFloat {
+          to {
+            transform: translateY(-100vh) rotate(720deg);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(particleStyles);
+    }
+    setInterval(createFloatingParticle, 4000);
+
+    // Enhanced hover effects for buttons
+    document.querySelectorAll('.btn, .tag').forEach(element => {
+      element.addEventListener('mouseenter', function(e) {
+        if (this.querySelector('.ripple')) return;
+        const ripple = document.createElement('div');
+        ripple.className = 'ripple';
+        ripple.style.position = 'absolute';
+        ripple.style.borderRadius = '50%';
+        ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+        ripple.style.transform = 'scale(0)';
+        ripple.style.animation = 'ripple 0.6s linear';
+        ripple.style.left = '50%';
+        ripple.style.top = '50%';
+        ripple.style.width = '100px';
+        ripple.style.height = '100px';
+        ripple.style.marginLeft = '-50px';
+        ripple.style.marginTop = '-50px';
+        ripple.style.pointerEvents = 'none';
+        this.appendChild(ripple);
+        setTimeout(() => { if (ripple.parentNode) ripple.remove(); }, 600);
+      });
+    });
+    if (!document.getElementById('rippleStyles')) {
+      const rippleStyles = document.createElement('style');
+      rippleStyles.id = 'rippleStyles';
+      rippleStyles.textContent = `
+        @keyframes ripple {
+          to {
+            transform: scale(4);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(rippleStyles);
+    }
+
+    // Parallax effect for particles
+    let ticking = false;
+    window.addEventListener('mousemove', (e) => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const particles = document.querySelectorAll('.particle');
+          const mouseX = e.clientX / window.innerWidth;
+          const mouseY = e.clientY / window.innerHeight;
+          particles.forEach((particle, index) => {
+            const speed = (index + 1) * 0.5;
+            const x = (mouseX - 0.5) * speed * 20;
+            const y = (mouseY - 0.5) * speed * 20;
+            particle.style.transform = `translate(${x}px, ${y}px) rotate(${x + y}deg)`;
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.panel').forEach(panel => {
+      observer.observe(panel);
+    });
+
+    // Mouse cursor animation (trail effect)
+    document.addEventListener('mousemove', function(e) {
+      const trail = document.createElement('div');
+      trail.style.position = 'fixed';
+      trail.style.left = (e.clientX - 8) + 'px';
+      trail.style.top = (e.clientY - 8) + 'px';
+      trail.style.width = '16px';
+      trail.style.height = '16px';
+      trail.style.borderRadius = '50%';
+      trail.style.background = 'radial-gradient(circle, var(--accent) 60%, transparent 100%)';
+      trail.style.pointerEvents = 'none';
+      trail.style.zIndex = '9999';
+      trail.style.opacity = '0.7';
+      trail.style.transition = 'opacity 0.5s, transform 0.5s';
+      document.body.appendChild(trail);
+      setTimeout(() => {
+        trail.style.opacity = '0';
+        trail.style.transform = 'scale(2)';
+      }, 10);
+      setTimeout(() => {
+        if (trail.parentNode) trail.remove();
+      }, 500);
+    });
+  </script>
+  
+  <!--
+    Customization Instructions:
+    1) Replace your-photo.jpg with your actual photo (same filename in same folder or direct link).
+    2) Change the texts: Name, job title, bio description.
+    3) Update social media links: Facebook, Instagram, X, LinkedIn, GitHub, YouTube, Telegram, TikTok, Snapchat, Discord, Twitch, Pinterest.
+    4) Change email in mailto: and in the email variable inside JavaScript.
+    5) Add resume.pdf file if you want the download button to work.
+    6) Update phone numbers for WhatsApp and call links.
+    7) Customize colors by modifying CSS custom properties in :root.
+  -->
+</body>
+</html>
