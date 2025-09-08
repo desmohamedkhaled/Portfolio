@@ -204,18 +204,463 @@ body {
   padding: 24px;
 }
 
-@media (max-width: 720px) {
+/* Mobile Portrait Responsive Design */
+@media (max-width: 768px) and (orientation: portrait) {
+  body {
+    padding: 8px 6px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .wrap {
+    max-width: 100%;
+    gap: 10px;
+    padding: 0;
+  }
+
   .hero {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 16px;
+    padding: 20px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .hero .actions {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .hero .actions:last-child {
+    margin-top: 8px;
+    justify-content: center;
+    flex-direction: row;
+    gap: 8px;
   }
 
   .grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px 12px 20px;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 12px;
+    display: block;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 6px;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .bio {
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 12px 0;
+    text-align: center;
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .btn {
+    padding: 10px 16px;
+    font-size: 13px;
+    gap: 6px;
+    min-width: 110px;
+    justify-content: center;
+    flex: 1;
+    max-width: 140px;
+  }
+
+  .btn .icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .panel {
+    padding: 16px 12px;
+    border-radius: 16px;
+    text-align: center;
+    margin: 0;
+  }
+
+  .panel h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--accent);
+  }
+
+  .list {
+    text-align: left;
+    width: 100%;
+  }
+
+  .list li {
+    padding: 6px 0;
+    font-size: 13px;
+    border-bottom: 1px dashed rgba(255, 255, 255, .08);
+  }
+
+  .list li:last-child {
+    border-bottom: none;
+  }
+
+  .tag {
+    padding: 6px 10px;
+    font-size: 12px;
+    gap: 5px;
+    margin: 3px;
+    min-width: 90px;
+    justify-content: center;
+    flex: 0 0 auto;
+  }
+
+  .tag .icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .socials {
+    gap: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 6px;
+    width: 100%;
+  }
+
+  .theme-toggle {
+    padding: 8px 10px;
+    font-size: 16px;
+    margin-left: 0;
+    min-width: 44px;
+  }
+
+  .footer {
+    font-size: 12px;
+    padding: 16px 0 0 0;
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  #scrollTopBtn {
+    bottom: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .card {
+    border-radius: 16px;
+    margin-bottom: 12px;
+  }
+
+  /* Portfolio section mobile adjustments */
+  .card[aria-label="Portfolio"] .grid,
+  .card[aria-label="My Projects"] .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px 12px 20px;
+  }
+
+  .card[aria-label="Portfolio"] .panel,
+  .card[aria-label="My Projects"] .panel {
+    text-align: center;
+    padding: 16px 12px;
+  }
+
+  .card[aria-label="Portfolio"] .panel img,
+  .card[aria-label="My Projects"] .panel img {
+    max-width: 70px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+
+  .card[aria-label="Portfolio"] h2,
+  .card[aria-label="My Projects"] h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  /* Better spacing for action buttons */
+  .hero .actions .btn {
+    margin: 2px;
+  }
+
+  /* Copy email button mobile styling */
+  #copyEmail {
+    margin-left: 0;
+    margin-top: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    min-width: 90px;
+  }
+
+  /* Improve overall layout for portrait */
+  .hero > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Better button arrangement */
+  .hero .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Improve panel layout */
+  .panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Better social links */
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Improve divider */
+  .divider {
+    margin: 12px 0;
+  }
+}
+
+/* Small Mobile Portrait */
+@media (max-width: 480px) and (orientation: portrait) {
+  body {
+    padding: 6px 4px;
+    overflow-x: hidden;
+  }
+
+  .wrap {
+    gap: 8px;
+    padding: 0;
+  }
+
+  .hero {
+    padding: 16px 8px;
+    gap: 12px;
+  }
+
+  .avatar {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-bottom: 4px;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .bio {
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 10px 0;
+    padding: 0 4px;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    min-width: 100px;
+    max-width: 120px;
+    gap: 4px;
+  }
+
+  .btn .icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .panel {
+    padding: 12px 8px;
+    border-radius: 14px;
+  }
+
+  .panel h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .list li {
+    padding: 4px 0;
+    font-size: 12px;
+  }
+
+  .tag {
+    padding: 5px 8px;
+    font-size: 11px;
+    min-width: 80px;
+    margin: 2px;
+    gap: 4px;
+  }
+
+  .tag .icon {
+    width: 10px;
+    height: 10px;
+  }
+
+  .grid {
+    gap: 10px;
+    padding: 12px 8px 16px;
+  }
+
+  .actions {
+    gap: 6px;
+  }
+
+  .hero .actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    max-width: 280px;
+  }
+
+  .hero .actions .btn {
+    width: 100%;
+    max-width: 160px;
+    justify-content: center;
+  }
+
+  .hero .actions:last-child {
+    flex-direction: row;
+    justify-content: center;
+    gap: 6px;
+    max-width: 200px;
+  }
+
+  .socials {
+    gap: 4px;
+    margin-top: 4px;
+  }
+
+  .theme-toggle {
+    padding: 6px 8px;
+    font-size: 14px;
+    margin-left: 0;
+    min-width: 40px;
+  }
+
+  .footer {
+    font-size: 11px;
+    padding: 12px 0 0 0;
+    margin-top: 12px;
+  }
+
+  #scrollTopBtn {
+    bottom: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .card {
+    border-radius: 14px;
+    margin-bottom: 10px;
+  }
+
+  /* Portfolio section small mobile adjustments */
+  .card[aria-label="Portfolio"] .grid,
+  .card[aria-label="My Projects"] .grid {
+    gap: 10px;
+    padding: 12px 8px 16px;
+  }
+
+  .card[aria-label="Portfolio"] .panel,
+  .card[aria-label="My Projects"] .panel {
+    padding: 12px 8px;
+  }
+
+  .card[aria-label="Portfolio"] .panel img,
+  .card[aria-label="My Projects"] .panel img {
+    max-width: 60px;
+    margin-bottom: 8px;
+  }
+
+  .card[aria-label="Portfolio"] h2,
+  .card[aria-label="My Projects"] h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  /* Copy email button small mobile styling */
+  #copyEmail {
+    margin-top: 4px;
+    padding: 5px 10px;
+    font-size: 11px;
+    min-width: 80px;
+  }
+
+  /* Improve overall spacing */
+  .hero > div {
+    width: 100%;
+    padding: 0 4px;
+  }
+
+  /* Better button layout */
+  .hero .actions {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Improve panel layout */
+  .panel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Better social links */
+  .socials {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Improve divider */
+  .divider {
+    margin: 8px 0;
   }
 }
 
@@ -657,4 +1102,122 @@ h1 {
 #copyEmail:hover {
   background: var(--accent);
   color: var(--bg);
+}
+
+/* Touch-friendly improvements for mobile */
+@media (max-width: 768px) {
+  .btn, .tag, .theme-toggle, #copyEmail {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+  }
+
+  .btn:hover, .tag:hover {
+    transform: none;
+  }
+
+  .btn:active, .tag:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+
+  /* Improve touch targets */
+  .socials {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+
+  .tag {
+    margin: 3px;
+    flex: 0 0 auto;
+  }
+
+  /* Better spacing for mobile */
+  .hero .actions {
+    margin-top: 16px;
+    width: 100%;
+  }
+
+  .hero .actions:last-child {
+    margin-top: 12px;
+    width: 100%;
+  }
+
+  /* Mobile-specific particle adjustments */
+  .particle {
+    display: none;
+  }
+
+  /* Reduce animations on mobile for better performance */
+  .card {
+    animation: none;
+  }
+
+  .avatar {
+    animation: avatarPulse 4s ease-in-out infinite;
+  }
+
+  .avatar::before,
+  .avatar::after {
+    animation: none;
+  }
+
+  /* Better text alignment */
+  .hero > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Improve button layout */
+  .hero .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Better panel layout */
+  .panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .panel .list {
+    text-align: left;
+    width: 100%;
+  }
+
+  /* Improve social links layout */
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Better divider */
+  .divider {
+    margin: 16px 0;
+  }
+
+  /* Improve card spacing */
+  .card {
+    margin: 0 0 16px 0;
+  }
+
+  /* Better footer */
+  .footer {
+    margin-top: 20px;
+    text-align: center;
+  }
 }
