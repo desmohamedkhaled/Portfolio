@@ -1,35 +1,37 @@
 :root {
-  --bg: #0b1220;
-  --bg-grad-1: #0ea5e9;
-  /* sky-500 */
-  --bg-grad-2: #22c55e;
-  /* green-500 */
-  --bg-grad-3: #8b5cf6;
-  /* violet-500 */
-  --card: #0f172a;
-  /* slate-900 */
-  --text: #e5e7eb;
-  /* zinc-200 */
-  --muted: #a1a1aa;
-  /* zinc-400 */
-  --accent: #22d3ee;
-  /* cyan-400 */
-  --ring: rgba(34, 211, 238, 0.4);
-  --shadow: 0 20px 60px rgba(0, 0, 0, .35);
-  --radius: 22px;
+  --bg: #000000;
+  --bg-grad-1: #1a1a1a;
+  --bg-grad-2: #2d2d2d;
+  --bg-grad-3: #1a1a1a;
+  --bg-grad-4: #000000;
+  --card: rgba(0, 0, 0, 0.9);
+  --text: #f5f5f5;
+  --muted: #a0a0a0;
+  --accent: #ffd700;
+  --accent-2: #ffed4e;
+  --accent-3: #fbbf24;
+  --ring: rgba(255, 215, 0, 0.4);
+  --shadow: 0 25px 80px rgba(0, 0, 0, .8);
+  --shadow-glow: 0 0 40px rgba(255, 215, 0, 0.3);
+  --radius: 24px;
+  --blur: 20px;
 }
 
 .light {
-  --bg: #f6f7fb;
-  --bg-grad-1: #0ea5e9;
-  --bg-grad-2: #22c55e;
-  --bg-grad-3: #8b5cf6;
-  --card: #ffffff;
-  --text: #0f172a;
-  --muted: #475569;
-  --accent: #0ea5e9;
-  --ring: rgba(14, 165, 233, 0.25);
-  --shadow: 0 20px 50px rgba(2, 6, 23, 0.08);
+  --bg: #ffffff;
+  --bg-grad-1: #f8f9fa;
+  --bg-grad-2: #e9ecef;
+  --bg-grad-3: #f8f9fa;
+  --bg-grad-4: #ffffff;
+  --card: rgba(255, 255, 255, 0.9);
+  --text: #000000;
+  --muted: #6c757d;
+  --accent: #ffd700;
+  --accent-2: #ffed4e;
+  --accent-3: #fbbf24;
+  --ring: rgba(255, 215, 0, 0.4);
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 40px rgba(255, 215, 0, 0.2);
 }
 
 * {
@@ -40,10 +42,12 @@
 
 body {
   font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: radial-gradient(1200px 800px at 10% 10%, rgba(34, 197, 94, .15), transparent),
-    radial-gradient(1000px 700px at 90% 20%, rgba(14, 165, 233, .18), transparent),
-    radial-gradient(800px 600px at 50% 80%, rgba(139, 92, 246, .12), transparent),
-    linear-gradient(160deg, var(--bg-grad-1) 0%, var(--bg) 30%, var(--bg) 100%);
+  background: 
+    radial-gradient(1400px 900px at 15% 15%, rgba(255, 215, 0, .08), transparent),
+    radial-gradient(1200px 800px at 85% 25%, rgba(255, 215, 0, .1), transparent),
+    radial-gradient(1000px 700px at 50% 75%, rgba(255, 215, 0, .06), transparent),
+    radial-gradient(800px 600px at 25% 50%, rgba(255, 215, 0, .04), transparent),
+    linear-gradient(135deg, var(--bg-grad-1) 0%, var(--bg-grad-2) 25%, var(--bg-grad-3) 50%, var(--bg-grad-4) 75%, var(--bg) 100%);
   color: var(--text);
   display: grid;
   place-items: center;
@@ -51,6 +55,7 @@ body {
   overflow-x: hidden;
   position: relative;
   transition: all 0.3s ease;
+  min-height: 100vh;
 }
 
 /* Floating particles background */
@@ -144,14 +149,39 @@ body {
 }
 
 .card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02));
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, .12);
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, .08) 0%, 
+    rgba(255, 255, 255, .04) 50%, 
+    rgba(255, 255, 255, .02) 100%);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border: 1px solid rgba(255, 255, 255, .15);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow), var(--shadow-glow);
   overflow: hidden;
-  animation: cardFloat 6s ease-in-out infinite;
+  animation: cardFloat 8s ease-in-out infinite;
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 215, 0, 0.6), 
+    rgba(255, 237, 78, 0.6), 
+    rgba(251, 191, 36, 0.6), 
+    transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }
 
 @keyframes cardFloat {
@@ -193,18 +223,20 @@ body {
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  border: 3px solid rgba(255, 255, 255, .15);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .35),
+  border: 3px solid rgba(255, 255, 255, .2);
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, .8),
     0 0 0 8px rgba(255, 255, 255, .05),
-    0 0 40px rgba(34, 211, 238, 0.3);
+    0 0 60px rgba(255, 215, 0, 0.4),
+    0 0 100px rgba(255, 215, 0, 0.2);
   object-fit: cover;
-  background: linear-gradient(45deg, #667eea, #764ba2);
+  background: linear-gradient(45deg, var(--accent), var(--accent-2), var(--accent-3));
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 4rem;
   color: white;
-  animation: avatarPulse 3s ease-in-out infinite, avatarGlow 4s ease-in-out infinite;
+  animation: avatarPulse 4s ease-in-out infinite, avatarGlow 5s ease-in-out infinite, avatarRotate 20s linear infinite;
   position: relative;
   overflow: hidden;
 }
@@ -216,9 +248,38 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: conic-gradient(from 0deg, transparent, rgba(34, 211, 238, 0.3), transparent);
-  animation: rotate 4s linear infinite;
+  background: conic-gradient(from 0deg, 
+    transparent, 
+    rgba(255, 215, 0, 0.4), 
+    rgba(255, 237, 78, 0.4), 
+    rgba(251, 191, 36, 0.4), 
+    transparent);
+  animation: rotate 6s linear infinite;
   z-index: -1;
+}
+
+.avatar::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent));
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+  z-index: -2;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes avatarRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 @keyframes avatarPulse {
@@ -257,13 +318,21 @@ body {
 
 h1 {
   margin: 0 0 6px;
-  font-size: 28px;
-  letter-spacing: .2px;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: .3px;
   animation: slideInLeft 1s ease-out 0.3s both;
-  background: linear-gradient(45deg, var(--accent), #8b5cf6);
+  background: linear-gradient(45deg, var(--accent), var(--accent-2), var(--accent-3));
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: slideInLeft 1s ease-out 0.3s both, textShimmer 3s ease-in-out infinite;
+}
+
+@keyframes textShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 @keyframes slideInLeft {
@@ -324,16 +393,21 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 14px;
+  padding: 12px 18px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, .06);
-  border: 1px solid rgba(255, 255, 255, .12);
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, .08) 0%, 
+    rgba(255, 255, 255, .04) 100%);
+  border: 1px solid rgba(255, 255, 255, .15);
   color: var(--text);
   text-decoration: none;
-  transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all .4s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
   position: relative;
   overflow: hidden;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .btn::before {
@@ -352,10 +426,15 @@ h1 {
 }
 
 .btn:hover {
-  transform: translateY(-3px) scale(1.05);
-  background: rgba(255, 255, 255, .15);
-  border-color: rgba(255, 255, 255, .3);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, .3);
+  transform: translateY(-4px) scale(1.08);
+  background: linear-gradient(135deg, 
+    rgba(255, 215, 0, .3) 0%, 
+    rgba(255, 237, 78, .3) 100%);
+  border-color: rgba(255, 215, 0, .6);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, .8),
+    0 0 30px rgba(255, 215, 0, .3);
+  color: var(--bg);
 }
 
 .btn:focus-visible {
@@ -383,12 +462,36 @@ h1 {
 }
 
 .panel {
-  background: var(--card);
-  border: 1px solid rgba(255, 255, 255, .08);
-  border-radius: 18px;
-  padding: 16px;
-  transition: all 0.3s ease;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, .06) 0%, 
+    rgba(255, 255, 255, .02) 100%);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 20px;
+  padding: 20px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   animation: panelSlideIn 0.8s ease-out;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  position: relative;
+  overflow: hidden;
+}
+
+.panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(6, 182, 212, 0.1), 
+    transparent);
+  transition: left 0.6s ease;
+}
+
+.panel:hover::before {
+  left: 100%;
 }
 
 .panel:nth-child(1) {
@@ -416,9 +519,11 @@ h1 {
 }
 
 .panel:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255, 255, 255, .2);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(255, 215, 0, .5);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, .7),
+    0 0 30px rgba(255, 215, 0, .2);
 }
 
 .panel h3 {
