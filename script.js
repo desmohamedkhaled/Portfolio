@@ -260,20 +260,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Add floating hearts animation
-function createFloatingHeart() {
-  const heart = document.createElement('div');
-  heart.innerHTML = '💖';
-  heart.style.position = 'fixed';
-  heart.style.left = Math.random() * 100 + '%';
-  heart.style.top = '100%';
-  heart.style.fontSize = '20px';
-  heart.style.pointerEvents = 'none';
-  heart.style.zIndex = '-1';
-  heart.style.animation = 'heartFloat 8s linear infinite';
-  heart.style.opacity = '0.7';
-  document.body.appendChild(heart);
-  setTimeout(() => { if (heart.parentNode) heart.remove(); }, 8000);
-}
+// function createFloatingHeart() {
+//   const heart = document.createElement('div');
+//   heart.innerHTML = '💖';
+//   heart.style.position = 'fixed';
+//   heart.style.left = Math.random() * 100 + '%';
+//   heart.style.top = '100%';
+//   heart.style.fontSize = '20px';
+//   heart.style.pointerEvents = 'none';
+//   heart.style.zIndex = '-1';
+//   heart.style.animation = 'heartFloat 8s linear infinite';
+//   heart.style.opacity = '0.7';
+//   document.body.appendChild(heart);
+//   setTimeout(() => { if (heart.parentNode) heart.remove(); }, 8000);
+// }
 
 // Add heart float animation styles
 if (!document.getElementById('heartStyles')) {
@@ -292,3 +292,4 @@ if (!document.getElementById('heartStyles')) {
 
 // Create floating hearts occasionally
 setInterval(createFloatingHeart, 8000);
+
