@@ -207,22 +207,22 @@ body {
 /* Mobile Portrait Responsive Design */
 @media (max-width: 768px) and (orientation: portrait) {
   body {
-    padding: 8px 6px;
+    padding: 6px 4px;
     min-height: 100vh;
     overflow-x: hidden;
   }
 
   .wrap {
     max-width: 100%;
-    gap: 10px;
+    gap: 8px;
     padding: 0;
   }
 
   .hero {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 16px;
-    padding: 20px 12px;
+    gap: 14px;
+    padding: 18px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -231,81 +231,81 @@ body {
   .hero .actions {
     justify-content: center;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 12px;
+    gap: 6px;
+    margin-top: 10px;
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
   }
 
   .hero .actions:last-child {
-    margin-top: 8px;
+    margin-top: 6px;
     justify-content: center;
     flex-direction: row;
-    gap: 8px;
+    gap: 6px;
   }
 
   .grid {
     grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 16px 12px 20px;
+    gap: 10px;
+    padding: 14px 10px 18px;
   }
 
   .avatar {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 12px;
+    width: 95px;
+    height: 95px;
+    margin: 0 auto 10px;
     display: block;
   }
 
   h1 {
-    font-size: 24px;
-    margin-bottom: 6px;
+    font-size: 22px;
+    margin-bottom: 5px;
     text-align: center;
-    line-height: 1.2;
+    line-height: 1.1;
   }
 
   .subtitle {
-    font-size: 15px;
-    margin-bottom: 10px;
+    font-size: 14px;
+    margin-bottom: 8px;
     text-align: center;
     color: var(--accent);
     font-weight: 500;
   }
 
   .bio {
-    font-size: 13px;
-    line-height: 1.6;
-    margin: 12px 0;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 10px 0;
     text-align: center;
     max-width: 100%;
-    padding: 0 8px;
+    padding: 0 6px;
   }
 
   .btn {
-    padding: 10px 16px;
-    font-size: 13px;
-    gap: 6px;
-    min-width: 110px;
+    padding: 9px 14px;
+    font-size: 12px;
+    gap: 5px;
+    min-width: 105px;
     justify-content: center;
     flex: 1;
-    max-width: 140px;
+    max-width: 135px;
   }
 
   .btn .icon {
-    width: 14px;
-    height: 14px;
+    width: 13px;
+    height: 13px;
   }
 
   .panel {
-    padding: 16px 12px;
-    border-radius: 16px;
+    padding: 14px 10px;
+    border-radius: 14px;
     text-align: center;
     margin: 0;
   }
 
   .panel h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 15px;
+    margin-bottom: 8px;
     color: var(--accent);
   }
 
@@ -315,9 +315,9 @@ body {
   }
 
   .list li {
-    padding: 6px 0;
-    font-size: 13px;
-    border-bottom: 1px dashed rgba(255, 255, 255, .08);
+    padding: 5px 0;
+    font-size: 12px;
+    border-bottom: 1px dashed rgba(255, 255, 255, .06);
   }
 
   .list li:last-child {
@@ -325,95 +325,95 @@ body {
   }
 
   .tag {
-    padding: 6px 10px;
-    font-size: 12px;
-    gap: 5px;
-    margin: 3px;
-    min-width: 90px;
+    padding: 5px 8px;
+    font-size: 11px;
+    gap: 4px;
+    margin: 2px;
+    min-width: 85px;
     justify-content: center;
     flex: 0 0 auto;
   }
 
   .tag .icon {
-    width: 12px;
-    height: 12px;
+    width: 11px;
+    height: 11px;
   }
 
   .socials {
-    gap: 6px;
+    gap: 5px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 6px;
+    margin-top: 5px;
     width: 100%;
   }
 
   .theme-toggle {
-    padding: 8px 10px;
-    font-size: 16px;
+    padding: 7px 9px;
+    font-size: 15px;
     margin-left: 0;
-    min-width: 44px;
+    min-width: 42px;
   }
 
   .footer {
-    font-size: 12px;
-    padding: 16px 0 0 0;
+    font-size: 11px;
+    padding: 14px 0 0 0;
     text-align: center;
-    margin-top: 16px;
+    margin-top: 14px;
   }
 
   #scrollTopBtn {
-    bottom: 16px;
-    right: 16px;
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
+    bottom: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    font-size: 17px;
   }
 
   .card {
-    border-radius: 16px;
-    margin-bottom: 12px;
+    border-radius: 14px;
+    margin-bottom: 10px;
   }
 
   /* Portfolio section mobile adjustments */
   .card[aria-label="Portfolio"] .grid,
   .card[aria-label="My Projects"] .grid {
     grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 16px 12px 20px;
+    gap: 10px;
+    padding: 14px 10px 18px;
   }
 
   .card[aria-label="Portfolio"] .panel,
   .card[aria-label="My Projects"] .panel {
     text-align: center;
-    padding: 16px 12px;
+    padding: 14px 10px;
   }
 
   .card[aria-label="Portfolio"] .panel img,
   .card[aria-label="My Projects"] .panel img {
-    max-width: 70px;
-    margin-bottom: 10px;
-    border-radius: 8px;
+    max-width: 65px;
+    margin-bottom: 8px;
+    border-radius: 6px;
   }
 
   .card[aria-label="Portfolio"] h2,
   .card[aria-label="My Projects"] h2 {
-    font-size: 20px;
-    margin-bottom: 12px;
+    font-size: 18px;
+    margin-bottom: 10px;
     text-align: center;
   }
 
   /* Better spacing for action buttons */
   .hero .actions .btn {
-    margin: 2px;
+    margin: 1px;
   }
 
   /* Copy email button mobile styling */
   #copyEmail {
     margin-left: 0;
-    margin-top: 6px;
-    padding: 6px 12px;
-    font-size: 12px;
-    min-width: 90px;
+    margin-top: 5px;
+    padding: 5px 10px;
+    font-size: 11px;
+    min-width: 85px;
   }
 
   /* Improve overall layout for portrait */
@@ -422,6 +422,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 4px;
   }
 
   /* Better button arrangement */
@@ -430,6 +431,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    gap: 4px;
   }
 
   /* Improve panel layout */
@@ -438,6 +440,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    box-sizing: border-box;
   }
 
   /* Better social links */
@@ -446,11 +449,29 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    gap: 4px;
   }
 
   /* Improve divider */
   .divider {
-    margin: 12px 0;
+    margin: 10px 0;
+  }
+
+  /* Better card spacing */
+  .card {
+    margin: 0 0 8px 0;
+  }
+
+  /* Improve text readability */
+  .bio {
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Better touch targets */
+  .btn, .tag, .theme-toggle {
+    min-height: 40px;
+    touch-action: manipulation;
   }
 }
 
