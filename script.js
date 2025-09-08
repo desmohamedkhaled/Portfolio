@@ -276,15 +276,15 @@ document.addEventListener('DOMContentLoaded', function() {
 // }
 
 // Add heart float animation styles
-if (!document.getElementById('heartStyles')) {
-  const heartStyles = document.createElement('style');
-  heartStyles.id = 'heartStyles';
-  heartStyles.textContent = `
-    @keyframes heartFloat {
-      to {
-        transform: translateY(-100vh) rotate(360deg);
-        opacity: 0;
-      }
+// if (!document.getElementById('heartStyles')) {
+//   const heartStyles = document.createElement('style');
+//   heartStyles.id = 'heartStyles';
+//   heartStyles.textContent = `
+//     @keyframes heartFloat {
+//       to {
+//         transform: translateY(-100vh) rotate(360deg);
+//         opacity: 0;
+//       }
     }
   `;
   document.head.appendChild(heartStyles);
@@ -292,4 +292,5 @@ if (!document.getElementById('heartStyles')) {
 
 // Create floating hearts occasionally
 setInterval(createFloatingHeart, 8000);
+
 
