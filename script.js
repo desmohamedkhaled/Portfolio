@@ -80,8 +80,13 @@ function createSparkle() {
 }
 setInterval(createSparkle, 3000);
 
-// Enhanced floating particles effect
+// Enhanced floating particles effect (disabled on mobile for performance)
 function createFloatingParticle() {
+  // Check if device is mobile
+  const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
+  if (isMobile) return; // Skip particles on mobile devices
+  
   const particle = document.createElement('div');
   const colors = ['rgba(255, 215, 0, 0.6)', 'rgba(255, 237, 78, 0.6)', 'rgba(251, 191, 36, 0.6)', 'rgba(255, 193, 7, 0.6)'];
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
@@ -196,8 +201,13 @@ document.querySelectorAll('.panel').forEach(panel => {
   observer.observe(panel);
 });
 
-// Enhanced mouse cursor animation (trail effect)
+// Enhanced mouse cursor animation (trail effect) - disabled on mobile
 document.addEventListener('mousemove', function (e) {
+  // Check if device is mobile or touch device
+  const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
+  
+  if (isMobile) return; // Skip mouse trail on mobile devices
+  
   const trail = document.createElement('div');
   const colors = ['#ffd700', '#ffed4e', '#fbbf24', '#ffc107'];
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
